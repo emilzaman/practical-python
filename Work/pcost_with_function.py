@@ -1,6 +1,9 @@
 # pcost.py
 #
 # Exercise 1.27
+
+import sys
+
 def pcost(filename):
     suma = 0.0
     with open(filename,'rt') as f:
@@ -12,4 +15,9 @@ def pcost(filename):
                 print("Couldn't parse", line)
     return(suma)
 
-print(pcost('Work\Data\missing.csv'))
+if len(sys.argv) == 2:
+    filename = sys.argv[1]
+else:
+    filename = "Data/missing.csv"
+
+print(filename, 'Total cost:', pcost(filename))
