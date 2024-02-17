@@ -6,7 +6,10 @@ def pcost(filename):
     with open(filename,'rt') as f:
         next(f)
         for line in f:
-            suma=suma+float(line.split(',')[2])*float(line.split(',')[1])
+            try:
+                suma=suma+float(line.split(',')[2])*float(line.split(',')[1])
+            except ValueError:
+                print("Couldn't parse", line)
     return(suma)
 
-print(pcost('Work\Data\portfolio.csv'))
+print(pcost('Work\Data\missing.csv'))
